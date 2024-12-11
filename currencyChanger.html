@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aligned Pricing Table with Currency Changer</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f8f9fa;
+        padding: 20px;
+      }
+
+      .pricing-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 20px;
+      }
+
+      .pricing-card {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        width: 30%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        border: 1px solid #e0e0e0;
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+
+      .pricing-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      }
+
+      .pricing-header,
+      .pricing-title {
+        padding: 20px;
+        text-align: center;
+        font-size: 1.8rem;
+        font-weight: bold;
+        background: #1db38d;
+      }
+
+      .pricing-price {
+        text-align: center;
+        font-size: 2.5rem;
+        font-weight: bold;
+        background: #1db38d;
+        color: #ffff;
+      }
+
+      .pricing-price small {
+        display: block;
+        font-size: 1rem;
+        margin-top: 5px;
+      }
+
+      .currency-changer {
+        text-align: center;
+      }
+
+      .currency-changer select {
+        font-size: 1rem;
+        padding: 5px;
+        border-radius: 5px;
+        border: 1px solid #e3e3e3;
+      }
+
+      .pricing-features {
+        margin: 20px 0;
+        padding: 0 20px;
+        text-align: left;
+        flex-grow: 1;
+      }
+
+      .pricing-features li {
+        margin: 10px 0;
+        list-style: none;
+        position: relative;
+        padding-left: 25px;
+        font-size: 1rem;
+        color: #333;
+      }
+
+      .pricing-features li:before {
+        content: "•";
+        color: #1db38d;
+        font-weight: bold;
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+
+      .highlight {
+        font-weight: bold;
+        color: #1db38d;
+      }
+
+      .pricing-footer {
+        text-align: center;
+        margin: 20px 0;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 20px 25px;
+        font-size: 1rem;
+        font-weight: bold;
+        text-decoration: none;
+        color: #fff;
+        border-radius: 50px;
+        margin-top: 20px;
+        transition: background-color 0.3s;
+      }
+
+      .btn.green {
+        background-color: #1db38d;
+      }
+
+      .btn.green:hover {
+        background-color: #17a973;
+      }
+
+      .btn.yellow {
+        background-color: #ffa500;
+      }
+
+      .btn.yellow:hover {
+        background-color: #e69500;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .pricing-card {
+          width: 100%;
+        }
+        .pricing-container {
+          display: flex;
+          flex-direction: column;
+          flex-wrap: wrap;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="pricing-container">
+      <!-- Basic Package -->
+      <div class="pricing-card">
+        <div class="currency-changer" style="background: #1db38d">
+          <div class="pricing-title" style="background: #1db38d">Basic</div>
+          <select class="currency-changer">
+            <option value="">Select Currency</option>
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+            <option value="GBP">GBP</option>
+          </select>
+        </div>
+        <div
+          class="pricing-price"
+          style="background: #1db38d"
+          data-price-usd="790"
+          data-renewal-usd="780"
+        >
+          $790 <small>Annual Renewal: USD 780</small>
+        </div>
+        <ul class="pricing-features">
+          <li>
+            <strong>Unlimited Name Availability Check:</strong> Ensure your
+            chosen company name is unique and available.
+          </li>
+          <li>
+            <strong>Document Preparation and Filing:</strong> All necessary
+            documentation is prepared and submitted on your behalf.
+          </li>
+          <li>
+            <strong>Expedited Incorporation Process:</strong> Company
+            incorporation completed efficiently.
+          </li>
+          <li>
+            <strong>One Year of Secretarial Services:</strong> Comprehensive
+            company secretarial support for one year.
+          </li>
+          <li>
+            <strong>One Year Registered Agent and Address:</strong> Provision of
+            a local registered agent and address for one year.
+          </li>
+          <li>
+            <strong>All Government Fees Included for One Year:</strong> Covers
+            all government-related fees for the first year.
+          </li>
+          <li>
+            <strong>Digital Corporate Documents:</strong> Receive all essential
+            corporate documents in digital format.
+          </li>
+        </ul>
+        <div class="pricing-footer">
+          <a href="#" class="btn green">Get Started</a>
+        </div>
+      </div>
+
+      <!-- Standard Package -->
+      <div class="pricing-card">
+        <div class="currency-changer" style="background: #edf0ef">
+          <div class="pricing-title" style="background: #edf0ef">Standard</div>
+          <select class="currency-changer">
+            <option value="">Select Currency</option>
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+            <option value="GBP">GBP</option>
+          </select>
+        </div>
+
+        <div
+          class="pricing-price"
+          style="background: #edf0ef; color: #333"
+          data-price-usd="850"
+          data-renewal-usd="780"
+        >
+          $850 <small>Annual Renewal: USD 780</small>
+        </div>
+        <ul class="pricing-features">
+          <li>
+            <strong>Everything in the Basic Package:</strong> Includes
+            comprehensive services for setting up an Anguilla Business Company
+            (BC).
+          </li>
+          <li>
+            <strong>Bank Account Opening:</strong> Assistance with opening a
+            bank account.
+          </li>
+          <li>
+            <strong>One-Time Application Fee:</strong> Covers the application
+            fee for one bank account.
+          </li>
+          <li>
+            <strong>Bank Account Introduction:</strong> Introduction service to
+            any bank on the supported list.
+          </li>
+          <li>
+            <strong>Certificate of Incumbency:</strong> Provided if required.
+          </li>
+        </ul>
+        <div class="pricing-footer">
+          <a href="#" class="btn yellow">Get Started</a>
+        </div>
+      </div>
+
+      <!-- Premium Package -->
+      <div class="pricing-card">
+        <div class="pricing-title" style="background: #1db38d">Premium</div>
+        <div class="currency-changer" style="background: #1db38d">
+          <select class="currency-changer">
+            <option value="">Select Currency</option>
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+            <option value="GBP">GBP</option>
+          </select>
+        </div>
+
+        <div
+          class="pricing-price"
+          style="background: #1db38d"
+          data-price-usd="950"
+          data-renewal-usd="780"
+        >
+          $950 <small>Annual Renewal: USD 780</small>
+        </div>
+        <ul class="pricing-features">
+          <li>
+            <strong>Everything in the Standard Package:</strong> Includes all
+            the comprehensive services provided in the standard package.
+          </li>
+          <li>
+            <strong>Premium Banking Support:</strong> Enhanced support for bank
+            account services.
+          </li>
+          <li>
+            <strong>One-Time Application Fee:</strong> Covers the application
+            fee for up to 5 banks or until the account is successfully opened,
+            whichever comes first.
+          </li>
+          <li>
+            <strong>Consulting on Alternatives:</strong> Expert advice on
+            suitable alternatives if the initial application is not approved.
+          </li>
+          <li>
+            <strong>Remote Bank Account Opening:</strong> Facilitates opening a
+            bank account remotely.
+          </li>
+        </ul>
+        <div class="pricing-footer">
+          <a href="#" class="btn green">Get Started</a>
+        </div>
+      </div>
+    </div>
+
+    <script src="index.js"></script>
+  </body>
+</html>
